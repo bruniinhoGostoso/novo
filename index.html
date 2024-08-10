@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container com Imagens e Botões</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-group">
+            <div class="image-container">
+                <div class="image-item">
+                    <img src="/img/imgg.png"
+                        alt="Sinal de Mais">
+                    <p class="textp"> Metodo de <br> Pagamento  </p>
+
+                    <button class="action-button">Comprar</button>
+                </div>
+                <div class="image-item">
+                    <img src="img\calculadora.png" alt="Sinal de Percentual">
+                    <p class="textp">Calculadora de Crédito Especial</p>
+                    <a href="primeira.html">
+                    <button class="action-button">Calcular</button>
+                </a>
+                </div>
+                <div class="image-item">
+                    <img src="/img/igual.png" alt="Sinal de Multiplicação">
+                    <p class="textp"> Somar ou <br>Multiplicar</p>
+
+
+                    <button class="action-button">Testar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .textp {
+            font-size: 10px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            text-align: center;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image-item {
+            text-align: center;
+            width: 30%;
+        }
+
+        .image-item img {
+            width: 90px;
+            height: 90px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        .action-button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .action-button:hover {
+            background-color: #555;
+        }
+    </style>
+</body>
+
+</html>

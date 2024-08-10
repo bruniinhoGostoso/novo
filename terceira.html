@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pagamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>Calculadora de Pagamento</h1>
+        <form id="payment-form">
+            <div class="form-group">
+                <label for="preco">Preço do Produto (R$):</label>
+                <input type="number" id="preco" name="preco" required>
+            </div>
+            <div class="form-group">
+                <label for="condicao">Condição de Pagamento:</label>
+                <select id="condicao" name="condicao" required>
+                    <option value="1">À vista em dinheiro ou cheque (10% de desconto)</option>
+                    <option value="2">À vista no cartão de crédito (15% de desconto)</option>
+                    <option value="3">Em duas vezes sem juros</option>
+                    <option value="4">Em duas vezes com juros de 10%</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="calcularPagamento()">Calcular Pagamento</button>
+            </div>
+        </form>
+        <div class="results">
+            <p id="resultado"></p>
+        </div>
+    </div>
+
+
+    <script>
+        function calcularPagamento() {
+
+            var preco = parseFloat(document.getElementById('preco').value);
+            var condicao = document.getElementById('condicao').value;
+
+
+            var valorFinal = 0;
+
+
+            switch (condicao) {
+                case '1':
+                    valorFinal = preco * 0.9; // 10% de desconto
+                    break;
+                case '2':
+                    valorFinal = preco * 0.85; // 15% de desconto
+                    break;
+                case '3':
+                    valorFinal = preco; // Em duas vezes sem juros, preço normal
+                    break;
+                case '4':
+                    valorFinal = preco * 1.1; // Em duas vezes com juros de 10%
+                    break;
+                default:
+                    break;
+            }
+
+            // Exibe o resultado     
+            var resultadoElement = document.getElementById('resultado');
+            resultadoElement.innerText = `Preço do Produto: R$ ${preco.toFixed(2)}\nValor a ser pago: R$ ${valorFinal.toFixed(2)}`;
+        }
+    </script>
+
+
+</body>
+
+</html>
